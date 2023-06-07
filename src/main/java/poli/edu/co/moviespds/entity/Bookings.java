@@ -1,4 +1,5 @@
 package poli.edu.co.moviespds.entity;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,21 +16,29 @@ public class Bookings {
 
     @Id
     @Column(name = "id_booking")
-    private Long idBooking;
+    private Long id;
 
-    private Long idUser;
+    private Long userId;
 
-    private Long idShowTime;
+    private Long showTimeId;
+
+    @ManyToOne(fetch= FetchType.EAGER,cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "idMovies")
+    private Movies movies;
+
+    @ManyToOne(fetch= FetchType.EAGER,cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "idUser")
+    private Users users;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Bookings bookings)) return false;
-        return Objects.equals(getIdBooking(), bookings.getIdBooking());
+        return Objects.equals(getId(), bookings.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdBooking());
+        return Objects.hash(getId());
     }
 }

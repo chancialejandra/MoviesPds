@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +22,13 @@ public class Movies {
     private String director;
 
     private int rating;
+
+    @OneToMany(mappedBy = "movies",fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
+    private List<Showtimes> showtimes;
+
+    @OneToMany(mappedBy = "movies",fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
+    private List<Bookings> bookings;
+
 
     @Override
     public boolean equals(Object o) {

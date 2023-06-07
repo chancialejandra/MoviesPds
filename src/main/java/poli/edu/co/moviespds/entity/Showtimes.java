@@ -21,6 +21,10 @@ public class Showtimes {
 
     private Date date;
 
+    @ManyToOne(fetch= FetchType.EAGER,cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "idMovies")
+    private Movies movies;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
