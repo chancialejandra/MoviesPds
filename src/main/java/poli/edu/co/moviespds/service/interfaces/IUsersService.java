@@ -11,7 +11,7 @@ public interface IUsersService {
     Boolean findByIdentificationNumber(String identificationNumber);
     MessageResponse createUser(UserRequest user);
 
-    List<Users> readUser();
+    List<Users> fillAllUser();
 
     MessageResponse deleteUser(String identificationNumber);
 }

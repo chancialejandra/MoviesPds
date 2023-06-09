@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,7 +15,7 @@ public class Bookings {
 
     @Id
     @Column(name = "id_booking")
-    private Long id;
+    private Long idBookings;
 
     private Long userId;
 
@@ -34,11 +33,11 @@ public class Bookings {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Bookings bookings)) return false;
-        return Objects.equals(getId(), bookings.getId());
+        return Objects.equals(getIdBookings(), bookings.getIdBookings());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getIdBookings());
     }
 }

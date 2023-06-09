@@ -21,8 +21,8 @@ public class UsersController {
     }
 
     @GetMapping
-    public ResponseEntity readUser(){
-        List<Users> list = iUsersService.readUser();
+    public ResponseEntity fillAllUser(){
+        List<Users> list = iUsersService.fillAllUser();
         if (list.isEmpty()){
             return ResponseEntity.status(HttpStatus.OK).body("There are no registered users");
         }

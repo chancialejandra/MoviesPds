@@ -14,8 +14,8 @@ import java.util.Objects;
 public class Movies {
 
     @Id
-    @Column(name = "id_movies")
-    private Long idMovies;
+    @Column(name = "id_movie")
+    private Long idMovie;
 
     private String title;
 
@@ -34,11 +34,11 @@ public class Movies {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Movies movies)) return false;
-        return Objects.equals(getIdMovies(), movies.getIdMovies());
+        return Objects.equals(getIdMovie(), movies.getIdMovie());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdMovies());
+        return Objects.hash(getIdMovie());
     }
 }
